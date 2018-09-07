@@ -30,4 +30,12 @@ public class navigation : MonoBehaviour {
         yield return new WaitForSeconds(5);
         SceneManager.LoadScene(s);
     }
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("menu");
+        }
+    }
+
 }

@@ -9,8 +9,6 @@ public class loadingbar : MonoBehaviour {
 
     [SerializeField] private float currentAmount=0;
     [SerializeField] private float speed=4.0f;
-
-    // Update is called once per frame
     void Update()
     {
         if (currentAmount < 100)
