@@ -504,7 +504,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d27eb0bb93ae9c439071a95f4d2b941, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  videoscreen: {fileID: 0}
+  videoscreen: {fileID: 915734487}
 --- !u!43 &1078511619
 Mesh:
   m_ObjectHideFlags: 0
@@ -754,7 +754,7 @@ MonoBehaviour:
   mAspectRatio: 0.545238
   mImageTargetType: 0
   mWidth: 1
-  mHeight: 1
+  mHeight: 0.545238
 --- !u!4 &1256280262
 Transform:
   m_ObjectHideFlags: 0
