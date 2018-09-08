@@ -34,8 +34,7 @@ using System.Collections.Generic;
 public class ApiAiModule : MonoBehaviour
 {
 
-    public Text answerTextField;
-    public Text inputTextField;
+    public TextMesh answerTextField;
     private ApiAiUnity apiAiUnity;
     private AudioSource aud;
     public AudioClip listeningSound;
@@ -84,7 +83,7 @@ public class ApiAiModule : MonoBehaviour
                 
                 Debug.Log(outText);
                 
-                answerTextField.text = outText;
+                answerTextField.text = aiResponse.Result.Fulfillment.Speech;
                 
             } else
             {
@@ -161,7 +160,7 @@ public class ApiAiModule : MonoBehaviour
     
     public void SendText()
     {
-        var text = inputTextField.text;
+        var text = "hello";
 
         Debug.Log(text);
 
