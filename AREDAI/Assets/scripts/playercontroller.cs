@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.XR;
 
 public class playercontroller : MonoBehaviour {
     public GameObject textbook;
@@ -11,34 +13,39 @@ public class playercontroller : MonoBehaviour {
     private ApiAiModule a;
     private bool play;
      private int i;
+    public GameObject screen;
+    private videoplay vp;
     // Use this for initialization
     void Start () {
         r = textbook.GetComponent<Renderer>();
         a = chatbot.GetComponent<ApiAiModule>();
-	}
-	
-	// Update is called once per frame
-	void Update () {
+        r.material.mainTexture = Resources.Load("1") as Texture2D;
+        vp = screen.GetComponent<videoplay>();
+
+    }
+
+    // Update is called once per frame
+    void Update () {
         if (Input.GetMouseButton(0))
         {
             RaycastHit hit;
             if (Physics.Raycast(c.transform.position, c.transform.forward, out hit))
             {
                 Debug.Log(hit.transform.name);
-                if (hit.transform.name == "vrscreen")
+                if (hit.transform.name == "screen")
                 {
-                    
+                    vp.videoplayafterloading(play);
                     play = !play;
                 }
                 else if (hit.transform.name == "R")
                 {
                     i++;
-                    r.material.mainTexture = Resources.Load(((i % 16) + 1).ToString()) as Texture3D;
+                    r.material.mainTexture = Resources.Load(((i % 16) + 1).ToString()) as Texture2D;
                 }
                 else if (hit.transform.name == "L")
                 {
                     i--;
-                    r.material.mainTexture = Resources.Load(((i % 16) + 1).ToString()) as Texture3D;
+                    r.material.mainTexture = Resources.Load(((i % 16) + 1).ToString()) as Texture2D;
                     if (i <= 0)
                     {
                         i = 16;
@@ -50,5 +57,16 @@ public class playercontroller : MonoBehaviour {
                 }
             }
         }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            StartCoroutine(VRdisable());
+            SceneManager.LoadScene("armode");
+        }
+    }
+    IEnumerator VRdisable()
+    {
+        XRSettings.LoadDeviceByName("none");
+        yield return new WaitForSeconds(1);
+        XRSettings.enabled = true;
     }
 }

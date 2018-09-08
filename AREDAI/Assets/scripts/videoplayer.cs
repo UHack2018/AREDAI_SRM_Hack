@@ -14,6 +14,7 @@ public class videoplayer : MonoBehaviour {
     void Start () {
         vp = videoscreen.GetComponent<VideoPlayer>();
         vp.playOnAwake = false;
+        vp.Prepare();
         r = videoscreen.GetComponent<Renderer>();
 	}
 	
@@ -25,6 +26,7 @@ public class videoplayer : MonoBehaviour {
             {
                 vp.Play();
                 flag = !flag;
+                Debug.Log(vp.url);
             }
             else
             {
