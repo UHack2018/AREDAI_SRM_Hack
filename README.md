@@ -5,8 +5,8 @@ The main objective of our project is to present next generation of school studen
 ## Progress bar
 - [X] UI
 - [X] AR Module
-- [ ] VR module
-- [ ] Chatbot Module
-- [ ] Object Detection Module
+- [X] VR module
+- [X] Chatbot Module
+- [X] Object Detection Module
 - [ ] Web Scraper Module ???
 - [ ] OCR Module ????
